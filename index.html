@@ -118,13 +118,16 @@
             const mediaRecorder = new MediaRecorder(stream);
             var audioChunks = [];
             $('.play-button').on('mousedown', function (e) {
-                mediaRecorder.start();
-                $(this).toggleClass("paused");
-            }).bind('mouseup mouseleave', function () {
                 if (mediaRecorder.state !== 'inactive') {
                     mediaRecorder.stop();
                     $(this).toggleClass("paused");
+                }else{
+                    mediaRecorder.start();
+                    $(this).toggleClass("paused");
                 }
+
+            }).bind('mouseup mouseleave', function () {
+                
             });
             mediaRecorder.addEventListener("dataavailable", event => {
                 audioChunks.push(event.data);
