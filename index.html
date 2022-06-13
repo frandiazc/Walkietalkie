@@ -111,6 +111,10 @@
     socket.on('user', function (usercount) {
         $('.usercount').text(usercount)
     });
+    //get user id from socket
+    socket.on('userid', function (userid) {
+        console.log(userid)
+    });
 
 
     navigator.mediaDevices.getUserMedia({ audio: true })
