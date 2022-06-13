@@ -117,10 +117,10 @@
         .then(stream => {
             const mediaRecorder = new MediaRecorder(stream);
             var audioChunks = [];
-            $('.play-button').on('mousedown touchstart', function (e) {
+            $('.play-button').on('mousedown', function (e) {
                 mediaRecorder.start();
                 $(this).toggleClass("paused");
-            }).bind('mouseup mouseleave touchend', function () {
+            }).bind('mouseup mouseleave', function () {
                 if (mediaRecorder.state !== 'inactive') {
                     mediaRecorder.stop();
                     $(this).toggleClass("paused");
